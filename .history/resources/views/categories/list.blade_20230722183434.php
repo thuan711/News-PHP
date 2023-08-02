@@ -1,0 +1,18 @@
+<h1>Danh mục</h1>
+<a href="/addcate">Thêm</a>
+@if(session('succes'))
+    <div style="color:red">{{session('success')}}</div>
+@endif
+<ul>
+    @foreach($categories as $cate)
+        <li>{{$cate->name}}
+            <a href="{{route('delcate',['id'=>$cate->id])}}">Xóa</a>
+            <a href="{{route('editcate',['id'=>$cate->id])}}">Chỉnh</a>
+        </li>
+    @endforeach
+</ul>
+{{$categories->links()}}
+<style>
+    .pagination{list-style: none}
+    .pagination li{display: inline;}
+</style>
